@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <b-card-group class="row">
+        <b-card-group>
             <b-card img-src="https://placekitten.com/1000/1000" img-alt="Card image" img-top>
                 <b-card-text>
                     <p>Aya</p>
@@ -19,6 +19,7 @@
                 Some quick example text to build on the card and make up the bulk of the card's content.
                 </b-card-text>
             </b-card>
+            
         </b-card-group>
     </div>
 </template>

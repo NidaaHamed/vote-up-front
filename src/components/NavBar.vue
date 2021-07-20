@@ -7,7 +7,7 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item href="#">Home</b-nav-item>
-        <b-nav-item href="#">About</b-nav-item>
+        <b-nav-item><router-link to="/about">About</router-link></b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -46,7 +46,7 @@ a {
 export default {
   methods: {
    logout(){
-      //localStorage.removeItem('token');
+      localStorage.removeItem('token');
       this.$router.push('/');
     }
   }
