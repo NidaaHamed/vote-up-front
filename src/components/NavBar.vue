@@ -44,7 +44,9 @@ a {
 </style>
 <script>
 export default {
-  
+  data() {
+    return {};
+  },
   methods: {
    logout(){
       localStorage.removeItem('user');
