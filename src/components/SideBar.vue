@@ -2,36 +2,36 @@
   <div v-if="roleId===3">
     <b-navbar toggleable="lg" type="light" variant="info" shadow>
         <b-list-group>
-          <b-list-group-item>Over View</b-list-group-item>
-          <b-list-group-item>Candidates</b-list-group-item>
-          <b-list-group-item>Vote</b-list-group-item>
-          <b-list-group-item>Student Union</b-list-group-item>
-          <b-list-group-item>Commissions</b-list-group-item>
+          <b-list-group-item><router-link to="/overview">Over View</router-link></b-list-group-item>
+          <b-list-group-item><router-link to="/candidates">Candidates</router-link></b-list-group-item>
+          <b-list-group-item><router-link to="/vote">Vote</router-link></b-list-group-item>
+          <b-list-group-item><router-link to="/studentunion">Student Union</router-link></b-list-group-item>
+          <b-list-group-item><router-link to="/commissions">Commissions</router-link></b-list-group-item>
         </b-list-group>
     </b-navbar>
   </div>
   <div v-else-if="roleId===2">
     <b-navbar toggleable="lg" type="light" variant="info" shadow>
-        <b-list-group>
-          <b-list-group-item>Over View</b-list-group-item>
-          <b-list-group-item>Candidates</b-list-group-item>
-          <b-list-group-item>Vote</b-list-group-item>
-          <b-list-group-item>Student Union</b-list-group-item>
-          <b-list-group-item>Commissions</b-list-group-item>
-          <b-list-group-item>Posts</b-list-group-item>
-        </b-list-group>
+      <b-list-group>
+        <b-list-group-item><router-link to="/overview">Over View</router-link></b-list-group-item>
+        <b-list-group-item><router-link to="/candidates">Candidates</router-link></b-list-group-item>
+        <b-list-group-item><router-link to="/vote">Vote</router-link></b-list-group-item>
+        <b-list-group-item><router-link to="/studentunion">Student Union</router-link></b-list-group-item>
+        <b-list-group-item><router-link to="/commissions">Commissions</router-link></b-list-group-item>
+        <b-list-group-item><router-link to="/posts">Posts</router-link></b-list-group-item>
+      </b-list-group>
     </b-navbar>
   </div>
   <div v-else-if="roleId===1">
     <b-navbar class="navbar-vertical fixed-left bg-white" toggleable="lg" type="light" variant="light" shadow>
-          <b-list-group>
-            <b-list-group-item><router-link to="/candidates">Candidates</router-link></b-list-group-item>
-            <b-list-group-item><router-link to="/studentunion">Student Union</router-link></b-list-group-item>
-            <b-list-group-item><router-link to="/nominationrequest">Nomination Requests</router-link></b-list-group-item>
-            <b-list-group-item><router-link to="/commissions">Commissions</router-link></b-list-group-item>
-            <b-list-group-item><router-link to="/electionresults">Election Results</router-link></b-list-group-item>
-            <b-list-group-item><router-link to="/complaints">Complaints</router-link></b-list-group-item>
-          </b-list-group>
+      <b-list-group>
+        <b-list-group-item><router-link to="/candidates">Candidates</router-link></b-list-group-item>
+        <b-list-group-item><router-link to="/studentunion">Student Union</router-link></b-list-group-item>
+        <b-list-group-item><router-link to="/nominationrequest">Nomination Requests</router-link></b-list-group-item>
+        <b-list-group-item><router-link to="/commissions">Commissions</router-link></b-list-group-item>
+        <b-list-group-item><router-link to="/electionresults">Election Results</router-link></b-list-group-item>
+        <b-list-group-item><router-link to="/complaints">Complaints</router-link></b-list-group-item>
+      </b-list-group>
         
     </b-navbar>
   </div>

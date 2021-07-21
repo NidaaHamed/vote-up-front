@@ -54,12 +54,22 @@ const routes = [
         name: 'Profile',
         component: () => import('../components/Profile.vue')
       },
+      {
+        path: '/vote',
+        name: 'Vote',
+        component: () => import('../components/Vote.vue')
+      },
+      {
+        path: '/overview',
+        name: 'OverView',
+        component: () => import('../components/OverView.vue')
+      },
+      {
+        path: '/posts',
+        name: 'Posts',
+        component: () => import('../components/Posts.vue')
+      }
     ]
-  },
-  {
-    path: '/vote',
-    name: 'Vote',
-    component: () => import('../components/Vote.vue')
   },
   // {
   //   path: '/about',
