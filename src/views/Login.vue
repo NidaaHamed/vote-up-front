@@ -55,7 +55,8 @@ export default {
       return {
           username: '',
           password: '',
-          userdata: {}
+          token: '',
+          roleId: null
       }
     },
     methods: {
@@ -66,9 +67,8 @@ export default {
           password:this.password
         }).then((response) => {
           console.log(response.data);
-          this.userdata = JSON.stringify(response.data);//need to compare roleId to know where to route:super, admin, or user 
-          localStorage.setItem("user",this.userdata);
-          console.log(this.userdata);
+          //need to compare roleId to know where to route:super, admin, or user 
+          localStorage.setItem("user",JSON.stringify(response.data));
           router.push('/home');
         })
       }

@@ -27,9 +27,23 @@
 import SideBar from '../components/SideBar.vue';
 import NavBar from '../components/NavBar.vue';
 export default {
+  data() {
+    return {
+      token: '',
+      roleId: null
+    };
+  },
   components: {
     SideBar,
     NavBar,
+  },
+  methods: {
+    usertype() {
+      let userdata = JSON.parse(localStorage.getItem("user"));
+      this.token = userdata.data.token;
+      this.roleId = userdata.data.user.roleId;
+      console.log("token : "+this.token+" , roleId : "+this.roleId);
+    }
   }
 }
 </script>
