@@ -20,6 +20,11 @@ const routes = [
     component: () => import('../views/Home.vue'),
     children: [
       {
+        path: '/',
+        name: 'OverView',
+        component: () => import('../components/OverView.vue')
+      },
+      {
         path: '/electionresults',
         name: 'ElectionResults',
         component: () => import('../components/ElectionResults.vue')
@@ -58,11 +63,6 @@ const routes = [
         path: '/vote',
         name: 'Vote',
         component: () => import('../components/Vote.vue')
-      },
-      {
-        path: '/overview',
-        name: 'OverView',
-        component: () => import('../components/OverView.vue')
       },
       {
         path: '/posts',

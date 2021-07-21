@@ -2,7 +2,7 @@
   <div v-if="roleId===3">
     <b-navbar toggleable="lg" type="light" variant="info" shadow>
         <b-list-group>
-          <b-list-group-item><router-link to="/overview">Over View</router-link></b-list-group-item>
+          <b-list-group-item><router-link to="/home">Over View</router-link></b-list-group-item>
           <b-list-group-item><router-link to="/candidates">Candidates</router-link></b-list-group-item>
           <b-list-group-item><router-link to="/vote">Vote</router-link></b-list-group-item>
           <b-list-group-item><router-link to="/studentunion">Student Union</router-link></b-list-group-item>
@@ -13,7 +13,7 @@
   <div v-else-if="roleId===2">
     <b-navbar toggleable="lg" type="light" variant="info" shadow>
       <b-list-group>
-        <b-list-group-item><router-link to="/overview">Over View</router-link></b-list-group-item>
+        <b-list-group-item><router-link to="/home">Over View</router-link></b-list-group-item>
         <b-list-group-item><router-link to="/candidates">Candidates</router-link></b-list-group-item>
         <b-list-group-item><router-link to="/vote">Vote</router-link></b-list-group-item>
         <b-list-group-item><router-link to="/studentunion">Student Union</router-link></b-list-group-item>
