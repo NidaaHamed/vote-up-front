@@ -18,10 +18,23 @@
                     <input type="text" name="" id="year" placeholder="third year">
                 </div>
             </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="" id="mobile" placeholder="Mobile">
+                </div>
+                <div class="col">
+                    <input type="text" name="" id="email" placeholder="Email">
+                </div>
+            </div>
             
         </form>
     </div>
 </template>
+<style scoped>
+input {
+    margin: 5px;
+}
+</style>
 <script>
 export default {
     data(){
