@@ -1,22 +1,26 @@
 <template>
     <div class="container p-5">
-        <b-form @submit="addPost">
-            <b-form-textarea
-                id="textarea"
-                v-model="post"
-                placeholder="Enter something..."
-                rows="3"
-                max-rows="6"
-            ></b-form-textarea>
-            <b-form-file
-                v-model="images"
-                placeholder="Choose a img or drop it here..."
-                drop-placeholder="Drop img here..."
-                accept="image/*"
-                class="mt-3"
-            ></b-form-file>
-            <b-button type="submit" variant="success" class="mt-3">Add Post</b-button>
-        </b-form>
+        <h1>Write Post</h1>
+        <div style="width: 80%;padding:15px;margin:auto;">
+            <b-form @submit="addPost">
+                <b-form-textarea
+                    id="textarea"
+                    v-model="post"
+                    placeholder="Enter something..."
+                    rows="3"
+                    max-rows="6"
+                ></b-form-textarea>
+                <b-form-file
+                    v-model="images"
+                    placeholder="Choose a img or drop it here..."
+                    drop-placeholder="Drop img here..."
+                    accept="image/*"
+                    class="mt-3"
+                ></b-form-file>
+                
+                <b-button type="submit" variant="success" class="mt-3">Add Post</b-button>
+            </b-form>
+        </div>
     </div>
 </template>
 <script>
