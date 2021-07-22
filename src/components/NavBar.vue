@@ -17,8 +17,8 @@
           <template #button-content>
             <em><img src="https://placekitten.com/50/50" alt="" srcset="" style="border-radius: 50%;"></em>
           </template>
-          <b-dropdown-item><router-link to="/profile">Profile</router-link> </b-dropdown-item>
-          <b-dropdown-item @click.native="logout">Sign Out</b-dropdown-item>
+          <b-dropdown-item><router-link to="/profile"><i class="fas fa-user"></i> Profile</router-link> </b-dropdown-item>
+          <b-dropdown-item @click.native="logout"><i class="fas fa-power-off"></i> Sign Out</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -35,6 +35,7 @@
 }
 .navbar-brand {
   margin-left: 2rem;
+  font-size: 36px;
 }
 a {
   color: #333 !important;

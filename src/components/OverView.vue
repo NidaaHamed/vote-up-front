@@ -1,5 +1,87 @@
 <template>
-    <div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores unde totam, sapiente culpa doloribus illum ad quasi obcaecati hic? Iste rerum voluptas harum perspiciatis aliquid, ab error rem praesentium aut?</p>
+    <div class="container posts-content">
+        <div class="row">
+            <div style="width: 80%;margin:auto;">
+                <div class="card mb-4">
+                <div class="card-body">
+                    <div class="media mb-3 d-flex">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="d-block ui-w-40 rounded-circle" alt="">
+                    <div class="media-body ml-3">
+                        Kenneth Frazier
+                        <div class="text-muted small">3 days ago</div>
+                    </div>
+                    </div>
+                
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus commodo bibendum. Vivamus laoreet blandit odio, vel finibus quam dictum ut.
+                    </p>
+                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" style="width:90%;"> 
+                </div>
+                <div class="card-footer d-flex" style="justify-content: space-around;">
+                    <a class="d-inline-block text-muted">
+                        <i class="far fa-thumbs-up"></i> Like
+                    </a>
+                    <a class="d-inline-block text-muted ml-3">
+                        <i class="far fa-comments"></i> Comment
+                    </a>
+                    
+                </div>
+                </div>
+            </div>
+            
+        </div>
     </div>
 </template>
+<style scoped>
+body {
+    background:#eee;
+}
+.posts-content{
+    margin-top:20px;    
+}
+.ui-w-40 {
+    width: 40px !important;
+    height: auto;
+}
+.default-style .ui-bordered {
+    border: 1px solid rgba(24,28,33,0.06);
+}
+.ui-bg-cover {
+    background-color: transparent;
+    background-position: center center;
+    background-size: cover;
+}
+.ui-rect {
+    padding-top: 50% !important;
+}
+.ui-rect, .ui-rect-30, .ui-rect-60, .ui-rect-67, .ui-rect-75 {
+    position: relative !important;
+    display: block !important;
+    padding-top: 100% !important;
+    width: 100% !important;
+}
+.d-flex, .d-inline-flex, .media, .media>:not(.media-body), .jumbotron, .card {
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+}
+.bg-dark {
+    background-color: rgba(24,28,33,0.9) !important;
+}
+.card-footer, .card hr {
+    border-color: rgba(24,28,33,0.06);
+}
+.ui-rect-content {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+}
+.default-style .ui-bordered {
+    border: 1px solid rgba(24,28,33,0.06);
+}
+a {
+    text-decoration: none;
+}
+
+</style>

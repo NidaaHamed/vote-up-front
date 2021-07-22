@@ -4,8 +4,8 @@
       <b-row>
         <nav-bar />
       </b-row>
-      <b-row style="height: 90vh;">
-        <b-col cols="2" class="mt-4">
+      <b-row style="min-height: 90vh;">
+        <b-col cols="2" class="mt-4" style="width: 20%">
           <side-bar />
         </b-col>
         <b-col cols="9" class="mt-4 pt-5 bg-white">

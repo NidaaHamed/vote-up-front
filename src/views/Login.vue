@@ -30,12 +30,13 @@
                   <b-form-input
                     id="password"
                     v-model="password"
+                    type="password"
                     placeholder="Enter Password"
                     required
                     style="margin:15px;"
                   ></b-form-input>
                 </b-form-group>
-                <b-button type="submit" variant="primary" style="margin:15px;padding:5px 15px;">Submit</b-button>
+                <b-button type="submit" variant="primary" style="margin:15px;padding:5px 15px;">Login</b-button>
               </b-form>
             </b-card-body>
           </b-col>
@@ -82,7 +83,6 @@ export default {
   justify-content:center;
   align-items: center;
   height: 100vh;
-  background-color: #eee;
 }
 
 </style>
