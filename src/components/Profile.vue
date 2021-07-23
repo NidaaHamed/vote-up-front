@@ -12,18 +12,18 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" name="" id="username" placeholder="Jaber">
+                    <input type="text" name="" id="username" v-bind:placeholder="name">
                 </div>
                 <div class="col">
-                    <input type="text" name="" id="year" placeholder="third year">
+                    <input type="text" name="" id="year" v-bind:placeholder="year">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" name="" id="mobile" placeholder="Mobile">
+                    <input type="text" name="" id="mobile" v-bind:placeholder="mobile">
                 </div>
                 <div class="col">
-                    <input type="text" name="" id="email" placeholder="Email">
+                    <input type="text" name="" id="email" v-bind:placeholder="email">
                 </div>
             </div>
             
@@ -39,13 +39,26 @@ input {
 export default {
     data(){
         return {
-            username: 'Jaber'
+            name: 'name',
+            year: 'year',
+            mobile: 'mobile',
+            email: 'email'
         };
-    }
-    ,methods: {
-        updateProfile(){
+    },
+    methods: {
+        updateProfile() {
 
-        }
-    }
+        },
+        getProfile() {
+            let userdata = JSON.parse(localStorage.getItem("user"));
+            this.name = userdata.data.user.name;
+            this.year = userdata.data.user.year;
+            this.mobile = userdata.data.user.mobile;
+            this.email = userdata.data.user.email;
+        },
+    },
+    created() {
+        this.getProfile();
+    },
 }
 </script>

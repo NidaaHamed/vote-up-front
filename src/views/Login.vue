@@ -4,8 +4,8 @@
     <div id="login">
       <b-card no-body class="overflow-hidden" style="max-width: 700px;">
         <b-row no-gutters>
-          <b-col md="6">
-            <img src="../assets/vote.jpg" alt="" srcset="" style="width:100%;height:100%;">
+          <b-col md="6" class="d-grid justify-content-center align-items-center">
+            <img src="../assets/voting_icon.png" alt="" srcset="">
           </b-col>
           <b-col md="6">
             <b-card-body title="Login" style="margin:15px;">
@@ -36,7 +36,7 @@
                     style="margin:15px;"
                   ></b-form-input>
                 </b-form-group>
-                <b-button type="submit" variant="primary" style="margin:15px;padding:5px 15px;">Login</b-button>
+                <b-button type="submit" style="margin:15px;padding:5px 15px;background-color:#fdab0d;border:#fdab0d;">Login</b-button>
               </b-form>
             </b-card-body>
           </b-col>

@@ -45,11 +45,16 @@ export default {
       roleId: null
     };
   },
+  methods: {
+    getToken(){
+      let userdata = JSON.parse(localStorage.getItem("user"));
+      this.token = userdata.data.token;
+      this.roleId = userdata.data.user.roleId;
+      console.log("token : "+this.token+" , roleId : "+this.roleId);
+    }
+  },
   created() {
-    let userdata = JSON.parse(localStorage.getItem("user"));
-    this.token = userdata.data.token;
-    this.roleId = userdata.data.user.roleId;
-    console.log("token : "+this.token+" , roleId : "+this.roleId);
+    this.getToken();
   },
 }
 </script>
