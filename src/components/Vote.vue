@@ -43,11 +43,48 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
     data(){
         return {
             selected: '',
+            voterId: '',
+            electionId: '',
+            votes: [
+                {
+                userId: '',
+                commissionId: ''
+                }
+            ]
         };
+    },
+    methods: {
+        vote(event){
+            event.preventDefault();
+            let token = this.getToken();
+            axios({
+                method: 'post',
+                url: '',
+                data: {
+                    voterId: this.voterId,
+                    electionId: this.electionId,
+                    votes: [
+                        {
+                        userId: this.votes.userId,
+                        commissionId: this.votes.commissionId
+                        }
+                    ]
+                },
+                headers: {'Authorization' : `Bearer ${token}`},
+            }).then(res => {
+                console.log(res.data)
+            })
+        },
+         getToken() {
+            let userdata = JSON.parse(localStorage.getItem("user"));
+            let token = userdata.data.token;
+            return token;
+        },
     }
 }
 </script>

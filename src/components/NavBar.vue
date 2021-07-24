@@ -15,7 +15,7 @@
         <b-nav-item-dropdown right>
           <!-- Using 'button-content' slot -->
           <template #button-content>
-            <em><img src="https://placekitten.com/50/50" alt="" srcset="" style="border-radius: 50%;"></em>
+            {{ name }}&nbsp; <em><img :src="image" alt="" srcset="" style="width:50px;height:50px;border-radius: 50%;"></em>
           </template>
           <b-dropdown-item><router-link to="/profile"><i class="fas fa-user"></i> Profile</router-link> </b-dropdown-item>
           <b-dropdown-item @click.native="logout"><i class="fas fa-power-off"></i> Sign Out</b-dropdown-item>
@@ -46,13 +46,25 @@ a {
 <script>
 export default {
   data() {
-    return {};
+    return {
+      name:'',
+      image: '',
+    };
   },
   methods: {
+    getProfile() {
+        let userdata = JSON.parse(localStorage.getItem("user"));
+        this.name = userdata.data.user.name;
+        this.image = userdata.data.user.image;
+
+    },
    logout(){
       localStorage.removeItem('user');
       this.$router.push('/');
     }
-  }
+  },
+  created() {
+      this.getProfile();
+  },
 }
 </script>

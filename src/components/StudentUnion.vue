@@ -1,56 +1,78 @@
 <template>
-    <div class="container">
-        <h1>Student Union</h1>
-        <b-card-group>
-            <b-card>
-                <div id="position-title">President</div>
-                <b-card img-src="https://placekitten.com/1000/1000" img-alt="Card image" img-top>
-                    <b-card-text>
-                        <p>Aya</p>
-                        Some quick example text to build on the card and make up the bulk of the card's content.
-                    </b-card-text>
-                </b-card>
-            </b-card>
-            
-            <b-card>
-                <div id="position-title">Vice-President</div>
-                <b-card img-src="https://placekitten.com/1000/1000" img-alt="Card image" img-top>
-                    <b-card-text>
-                        <p>Arwa</p>
-                        Some quick example text to build on the card and make up the bulk of the card's content.
-                    </b-card-text>
-                </b-card>
-            </b-card>
+    <div>
+       <h1>Student Union</h1>
+       <div>
+           <b-list-group v-for="com in details" :key="com.commissionId" style="border: 1px solid #eee;border-radius:5px;">
+                <div id="position-title">{{ com.commissionName }}</div>
+                <b-list-group-item v-for="can in com.candidates" :key="can.userId">
+                    <b-card :img-src="can.userImage" img-alt="Card image" img-left class="mb-3">
+                        <b-card-text>
+                            <p>{{ can.userName }} , Year: {{ can.userYear }}</p>
 
-            <b-card>
-                <div id="position-title">Treasurer</div>
-                <b-card img-src="https://placekitten.com/1000/1000" img-alt="Card image" img-top>
-                    <b-card-text>
-                        <p>Rawan</p>
-                        Some quick example text to build on the card and make up the bulk of the card's content.
-                    </b-card-text>
-                </b-card>
-            </b-card>
-
-            
-            
-        </b-card-group>
+                        </b-card-text>
+                    </b-card>
+                </b-list-group-item>
+            </b-list-group>
+       </div>
     </div>
 </template>
+<script>
+import axios from 'axios';
+// import { mapActions, mapGetters } from 'vuex';
+export default {
+    // name: "StudentUnion",
+    data() {
+        return {
+            token: '',
+            electionId: '',
+            year: null,
+            details: []
+        };
+    },
+    methods: {
+        getStudentUnion() {
+            this.getToken();
+            axios({
+                method: 'get',
+                url: 'http://graduationproject1.zahran4it.com/api/StudentUnion',
+                headers: {'Authorization':`Bearer ${this.token}`},
+            }).then(res => {
+                let stUnion = res.data;
+                console.log(stUnion);
+                this.electionId = stUnion.data.electionId
+                //console.log(this.electionId);
+                this.year = stUnion.data.year;
+                //console.log(this.year);
+                this.details = stUnion.data.details;
+                //console.log(this.details);
+            });
+        },
+         getToken() {
+            let userdata = JSON.parse(localStorage.getItem("user"));
+            //console.log(userdata);
+            this.token = userdata.data.token;
+            //console.log(this.token);
+        },
+        // ...mapActions(['fetchStUnion'])
+    },
+     created() {
+     this.getStudentUnion();
+        // this.fetchStUnion();
+     },
+    // computed: mapGetters(['getStUnion'])
+}
+</script>
 <style scoped>
 h1 {
     font-size: 24px;
 }
-.card {
-    /* width: 30% !important; */
-    border: 1px solid #ddd !important;
-    border-radius: 5px !important;
-    margin: 5px;
-}
-img {
-    border-radius: 50% !important;
-    margin: 5px;
+.list-group {
+    border: 1px solid #a7cff7 !important;
+    border-radius: 5px;
+    width: 80%;
+    margin: 20px auto;
     padding: 5px;
+    background-color: #eee;
 }
 #position-title {
     background-color: #a7cff7;
@@ -59,19 +81,30 @@ img {
     border: 1px solid #a7cff7;
     border-radius: 5px;
 }
-</style>
-<script>
-import axios from 'axios'
-export default {
-    methods: {
-        getStudentUnion() {
-            axios({
-                method: 'get',
-                url: 'http://graduationproject1.zahran4it.com/api/StudentUnion',
-            }).then(res => {
-                console.log(res.data);
-            });
-        }
-    }
+.list-group-item {
+    height: 80px;
+    padding: 8px 8px 9px 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
-</script>
+.card {
+    height: 100%;
+    border: none;
+}
+img {
+    border-radius: 50% !important;
+}
+.card-text {
+    display: flex;
+    justify-content: space-between;
+}
+.card-text .btn {
+    margin-right: 5px;
+    border-radius: 5px !important;
+}
+</style>
+
+
+
+

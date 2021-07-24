@@ -1,15 +1,14 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+// import Vue from 'vue'
+// import Vuex from 'vuex'
+// import studentUnion from './modules/studentunion'
 
-Vue.use(Vuex)
+// // load Vuex
+// Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
-})
+// // Create store
+// export default new Vuex.Store({
+//   modules: {
+//     studentUnion,
+    
+//   }
+// })

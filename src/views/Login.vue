@@ -68,7 +68,6 @@ export default {
           password:this.password
         }).then((response) => {
           console.log(response.data);
-          //need to compare roleId to know where to route:super, admin, or user 
           localStorage.setItem("user",JSON.stringify(response.data));
           router.push('/home');
         })

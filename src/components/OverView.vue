@@ -1,21 +1,19 @@
 <template>
     <div class="container posts-content">
-        <div class="row">
+        <div v-for="post in posts" :key="post.id" class="row">
             <div style="width: 80%;margin:auto;">
                 <div class="card mb-4">
                 <div class="card-body">
                     <div class="media mb-3 d-flex">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="d-block ui-w-40 rounded-circle" alt="">
+                    <img :src="post.userImage" class="d-block ui-w-50 rounded-circle" alt="">
                     <div class="media-body ml-3">
-                        Kenneth Frazier
-                        <div class="text-muted small">3 days ago</div>
+                        {{ post.userName }}
+                        <div class="text-muted small">{{ post.date }}</div>
                     </div>
                     </div>
                 
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus finibus commodo bibendum. Vivamus laoreet blandit odio, vel finibus quam dictum ut.
-                    </p>
-                    <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" style="width:90%;"> 
+                    <p>{{ post.text }}</p>
+                    <img :src="post.images[0]" alt="" style="width:90%;"> 
                 </div>
                 <div class="card-footer d-flex" style="justify-content: space-around;">
                     <a class="d-inline-block text-muted">
@@ -32,6 +30,47 @@
         </div>
     </div>
 </template>
+<script>
+import axios from 'axios';
+export default {
+    data(){
+        return {
+            pageNo: 1,
+            itemsPerPage: '100',
+            searchText: '',
+            allPages: null,
+            posts: []
+        };
+    },
+    methods: {
+        getAllPosts() {
+            let token = this.getToken();
+                axios({
+                    method: 'get',
+                    url: 'http://graduationproject1.zahran4it.com/api/Posts/AllPosts',
+                    params: {
+                        PageNo: this.pageNo,
+                        ItemsPerPage: this.itemsPerPage,
+                        SearchText: this.searchText
+                    },
+                    headers: {'Authorization':`Bearer ${token}`},
+                }).then(res => {
+                    console.log(res.data);
+                    this.posts = res.data.data.result;
+                    console.log(this.posts);
+                });
+        },
+         getToken() {
+            let userdata = JSON.parse(localStorage.getItem("user"));
+            let token = userdata.data.token;
+            return token;
+        },
+    },
+    created() {
+        this.getAllPosts();
+    },
+}
+</script>
 <style scoped>
 body {
     background:#eee;
@@ -39,9 +78,9 @@ body {
 .posts-content{
     margin-top:20px;    
 }
-.ui-w-40 {
-    width: 40px !important;
-    height: auto;
+.ui-w-50 {
+    width: 50px !important;
+    height: 50px !important;
 }
 .default-style .ui-bordered {
     border: 1px solid rgba(24,28,33,0.06);

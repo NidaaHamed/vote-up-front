@@ -11,7 +11,7 @@
                     max-rows="6"
                 ></b-form-textarea>
                 <b-form-file
-                    v-model="images"
+                    v-model="images[0]"
                     placeholder="Choose a img or drop it here..."
                     drop-placeholder="Drop img here..."
                     accept="image/*"
@@ -28,6 +28,7 @@ import axios from 'axios';
 export default {
     data() {
         return {
+            token:'',
             post: '',
             userId: '',
             images: []
@@ -41,20 +42,26 @@ export default {
                 method: 'post',
                 url: 'http://graduationproject1.zahran4it.com/api/Posts/AddPost',
                 data: {
-                    id: '',
+                    id: '12345',
                     text: this.post,
                     userId: this.userId,
-                    images: ['']
-                }
+                    images: ''
+                },
+                headers: {'Authorization' : `Bearer ${this.token}`}
             }).then(res => {
                 console.log(res.data);
             });
         },
+        getInfo(){
+            let userdata = JSON.parse(localStorage.getItem("user"));
+            this.userId = userdata.data.user.id;
+            this.token = userdata.data.token;
+            console.log(this.userId);
+            console.log(this.token);
+        }
     },
     created() {
-        let userdata = JSON.parse(localStorage.getItem("user"));
-        this.userId = userdata.data.user.id;
-        console.log("user id : "+this.userId);
+        this.getInfo();
     },
 
 }

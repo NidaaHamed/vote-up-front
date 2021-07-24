@@ -5,10 +5,10 @@
         <nav-bar />
       </b-row>
       <b-row style="min-height: 85vh;">
-        <b-col cols="2" class="mt-4" style="width: 20%">
+        <b-col md="2" class="mt-4" style="min-width: 20%">
           <side-bar />
         </b-col>
-        <b-col cols="9" class="mt-4 pt-5 bg-white">
+        <b-col md="9" class="mt-4 pt-5 bg-white">
           <div class="container">
             <router-view />
           </div>

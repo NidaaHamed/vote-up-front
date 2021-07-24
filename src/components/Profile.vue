@@ -3,10 +3,10 @@
         <form @submit="updateProfile">
             <div class="row">
                 <div class="col" style="height: 100px;">
-                    <img src="https://placekitten.com/100/100" alt="" srcset="" style="border-radius: 50%;">
+                    <img :src="image" alt="" srcset="" style="width: 100px;height: 100px;border-radius: 50%;">
                 </div>
                 <div class="col">
-                    <h1>{{ username }}</h1>
+                    <h1>{{ name }}</h1>
                     <p>Some quick example text to build on the card and make up the bulk of the card's content.</p>
                 </div>
             </div>
@@ -39,10 +39,11 @@ input {
 export default {
     data(){
         return {
-            name: 'name',
-            year: 'year',
-            mobile: 'mobile',
-            email: 'email'
+            name: '',
+            year: '',
+            mobile: '',
+            email: '',
+            image: ''
         };
     },
     methods: {
@@ -55,6 +56,8 @@ export default {
             this.year = userdata.data.user.year;
             this.mobile = userdata.data.user.mobile;
             this.email = userdata.data.user.email;
+            this.image = userdata.data.user.image;
+
         },
     },
     created() {
