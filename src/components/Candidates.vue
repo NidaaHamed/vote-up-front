@@ -9,6 +9,10 @@
                         <b-card :img-src="can.userImage" img-alt="Card image" img-top>
                             <b-card-text>
                                 <p>{{ can.userName }}</p>
+                                <span style="display:flex;justify-content:right;">
+                                    <i class="far fa-edit" type="button" style="color:#39f;padding:5px;" @click="editCandidate(can.id)"></i>
+                                    <i class="far fa-trash-alt" type="button" style="color:#f00;padding: 5px;" @click="deleteCandidate(can.id)"></i>
+                                </span>
                             </b-card-text>
                         </b-card>
                     </b-card>
@@ -28,7 +32,8 @@ export default {
             PageNo: 1,
             ItemsPerPage: 100,
             SearchText: '',
-            candidates: []
+            candidates: [],
+            commissionId: ''
         }
     },
     methods: {
@@ -55,8 +60,8 @@ export default {
                 url: 'http://graduationproject1.zahran4it.com/api/Candidate/WaitingCandidate',
                 params: {
                     electionId: this.electionId,
-                    
-                }
+                },
+                headers: {'Authorization':`Bearer ${this.token}`}
             })
             .then(res => {
                 console.log(res.data);
@@ -72,6 +77,33 @@ export default {
                this.commissions+=can.commissionName;
            }
            console.log(this.commissions);
+       },
+       editCandidate(canId){
+           axios({
+                method: 'put',
+                url: 'http://graduationproject1.zahran4it.com/api/Candidate/EditCandidate',
+                data: {
+                    id : canId,
+                    commissionId: this.commissionId,
+                },
+                headers: {'Authorization':`Bearer ${this.token}`}
+            })
+            .then(res => {
+                console.log(res.data);
+            });
+       },
+       deleteCandidate(canId) {
+           axios({
+                method: 'delete',
+                url: 'http://graduationproject1.zahran4it.com/api/Candidate/DeleteCandidate',
+                params: {
+                    id : canId,
+                },
+                headers: {'Authorization':`Bearer ${this.token}`}
+            })
+            .then(res => {
+                console.log(res.data);
+            });
        }
         
     },
