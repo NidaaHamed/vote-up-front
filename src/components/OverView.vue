@@ -16,8 +16,8 @@
                     <img :src="post.images[0]" alt="" style="width:90%;"> 
                 </div>
                 <div class="card-footer d-flex" style="justify-content: space-around;">
-                    <a class="d-inline-block text-muted">
-                        <i class="far fa-thumbs-up"></i> Like
+                    <a class="d-inline-block text-muted" @click="like(post.id)">
+                        {{post.likesCount}}<i class="far fa-thumbs-up"></i> Like
                     </a>
                     <a class="d-inline-block text-muted ml-3">
                         <i class="far fa-comments"></i> Comment
@@ -65,6 +65,14 @@ export default {
             let token = userdata.data.token;
             return token;
         },
+        like(id) {
+            let token = this.getToken();
+            axios({
+                method: 'put',
+                url: `http://graduationproject1.zahran4it.com/api/Posts/Like/${id}`,
+                headers: {'Athorization' : `Bearer ${token}`}
+            })
+        }
     },
     created() {
         this.getAllPosts();

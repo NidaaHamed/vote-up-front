@@ -18,9 +18,7 @@
 </template>
 <script>
 import axios from 'axios';
-// import { mapActions, mapGetters } from 'vuex';
 export default {
-    // name: "StudentUnion",
     data() {
         return {
             token: '',
@@ -40,26 +38,18 @@ export default {
                 let stUnion = res.data;
                 console.log(stUnion);
                 this.electionId = stUnion.data.electionId
-                //console.log(this.electionId);
                 this.year = stUnion.data.year;
-                //console.log(this.year);
                 this.details = stUnion.data.details;
-                //console.log(this.details);
             });
         },
          getToken() {
             let userdata = JSON.parse(localStorage.getItem("user"));
-            //console.log(userdata);
             this.token = userdata.data.token;
-            //console.log(this.token);
         },
-        // ...mapActions(['fetchStUnion'])
     },
      created() {
      this.getStudentUnion();
-        // this.fetchStUnion();
      },
-    // computed: mapGetters(['getStUnion'])
 }
 </script>
 <style scoped>

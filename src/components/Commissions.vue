@@ -1,35 +1,16 @@
 <template>
     <div class="container">
-        <b-card img-src="https://placekitten.com/150/150" img-alt="Card image" img-left class="mb-3">
-            <b-card-text>
-                <h4>Committee of families</h4>
-                <p>The activity of families aims to :- Closer links between students. - Closer links between students and teachers. - Development of the ability to cooperate and work in groups. - Develop the capacity to take responsibility. </p>
-            </b-card-text>
-        </b-card>
-        <b-card img-src="https://placekitten.com/150/150" img-alt="Card image" img-left class="mb-3">
-            <b-card-text>
-                <h4>Committee for the sports activity</h4>
-                <p>Sports activity aims to :
-                - Spread sports spirit among students and encourage sports talent and work on their development.
-                - Development of team spirit and sense of responsibility and discretion and self-satisfaction.
-                - Helping students acquire the skills and individual sports and the practice of healthy living.</p>
-            </b-card-text>
-        </b-card>
-        <b-card img-src="https://placekitten.com/150/150" img-alt="Card image" img-left class="mb-3">
-            <b-card-text>
-                <h4>Committee for cultural activity</h4>
-                <p>Cultural activities aim to:
-- The development of literary and poetic talent among students.
-- To develop the ability to write right through the wall magazines and other types of magazines.
-- Foster a spirit of cooperation among students and increase their capacity for collective action.  </p>
-            </b-card-text>
-        </b-card>
-        <b-card img-src="https://placekitten.com/150/150" img-alt="Card image" img-left class="mb-3">
-            <b-card-text>
-                <h4>Committee for artistic activity</h4>
-                <p> Artistic activity aims to : - Discover to the artistic talents of students and their development. - Spent Leisure time properly, fruitful and useful in the hills during the concerts, plays .. Etc.. - Feeling students a sense of national events, and opportunities to express. </p>
-            </b-card-text>
-        </b-card>
+        <div v-if="roleId==1||roleId==2">
+            <b-button variant="success" @click="addCommittee">Add Committee</b-button>
+        </div>
+        <b-card-group v-for="com in result" :key="com.id">
+            <b-card img-src="https://placekitten.com/150/150" img-alt="Card image" img-left class="mb-3">
+                <b-card-text>
+                    <h4>{{ com.name }}</h4>
+                    <p>{{ com.description }}</p>
+                </b-card-text>
+            </b-card>
+        </b-card-group>
     </div>
 </template>
 
@@ -38,18 +19,41 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            
+            roleId: null,
+            token: '',
+            pageNo: '1',
+            itemsPerPage: '20',
+            searchText: '',
+            result: []
         }
     },
     methods: {
-        getCommissions(){
+        getAllCommissions(){
+            this.getInfo();
             axios({
                 method: 'get',
-                url: 'http://graduationproject1.zahran4it.com/api/Candidate/Commissions',
-            }).then(res =>{
-                console.log(res.data);
+                url: 'http://graduationproject1.zahran4it.com/api/Commission/AllCommission',
+                params: {
+                    PageNo : this.pageNo,
+                    ItemsPerPage : this.itemsPerPage,
+                    SearchText : this.searchText
+                },
+                headers: {'Authorization' : `Bearer ${this.token}`}
+           }).then(res =>{
+                this.result = res.data.data.result;
             });
+        },
+        addCommittee(){
+
+        },
+        getInfo(){
+            let userdata = JSON.parse(localStorage.getItem("user"));
+            this.token = userdata.data.token;
+            this.roleId = userdata.data.user.roleId;
         }
-    }
+    },
+    created() {
+        this.getAllCommissions();
+    },
 }
 </script>
