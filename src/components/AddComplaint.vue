@@ -1,12 +1,13 @@
 <template>
     <div class="container p-5">
-        <h1>Write Post</h1>
+        <h1>Write Complaint</h1>
         <div style="width: 80%;padding:15px;margin:auto;">
-            <b-form @submit="addPost">
+            <b-form @submit="addComplaint">
+                <b-form-input v-model="title" placeholder="Title" style="margin-bottom:10px;"></b-form-input>
                 <b-form-textarea
                     id="textarea"
-                    v-model="post"
-                    placeholder="Enter something..."
+                    v-model="desc"
+                    placeholder="Enter Description of your problem..."
                     rows="3"
                     max-rows="6"
                 ></b-form-textarea>
@@ -29,7 +30,7 @@
                   </i>
                 </a>
                 <img id="img" src="" height="200" alt="" style="display:block;">
-                <b-button type="submit" variant="success" class="mt-3">Add Post</b-button>
+                <b-button type="submit" variant="success" class="mt-3">Add Complaint</b-button>
             </b-form>
         </div>
     </div>
@@ -40,9 +41,10 @@ export default {
     data() {
         return {
             token:'',
-            post: '',
+            title: '',
+            desc: '',
             userId: '',
-            image: ''
+            image: '',
         };
     },
     methods: {
@@ -60,17 +62,18 @@ export default {
             },false) ;
             reader.readAsDataURL(selectedImg);
         },
-        addPost(event) {
+        addComplaint(event) {
             event.preventDefault();
             let img = this.image;
             let imgs = [];
             imgs.push(img);
             axios({
                 method: 'post',
-                url: 'http://graduationproject1.zahran4it.com/api/Posts/AddPost',
+                url: 'http://graduationproject1.zahran4it.com/api/Complaint/AddComplaint',
                 data: {
                     id : '',
-                    text : this.post,
+                    title : this.title,
+                    description : this.desc,
                     userId : this.userId,
                     images : imgs
                 },

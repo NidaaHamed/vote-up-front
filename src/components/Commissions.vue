@@ -1,7 +1,16 @@
 <template>
     <div class="container">
-        <div v-if="roleId==1||roleId==2">
-            <b-button variant="success" @click="addCommittee">Add Committee</b-button>
+        <div v-if="roleId==1">
+            <b-button v-b-toggle.collapse-1 variant="success">Add Committee</b-button>
+            <b-collapse id="collapse-1" class="mt-2">
+            <b-card>
+            <p class="card-text">Collapse contents Here</p>
+            <b-button v-b-toggle.collapse-1-inner size="sm">Toggle Inner Collapse</b-button>
+            <b-collapse id="collapse-1-inner" class="mt-2">
+                <b-card>Hello!</b-card>
+            </b-collapse>
+            </b-card>
+        </b-collapse>
         </div>
         <b-card-group v-for="com in result" :key="com.id">
             <b-card img-src="https://placekitten.com/150/150" img-alt="Card image" img-left class="mb-3">

@@ -7,6 +7,7 @@
           <b-list-group-item><router-link to="/vote"><i class="fas fa-check-square"></i> Vote</router-link></b-list-group-item>
           <b-list-group-item><router-link to="/studentunion"><i class="fas fa-users"></i> Student Union</router-link></b-list-group-item>
           <b-list-group-item><router-link to="/commissions"><i class="fas fa-address-book"></i> Commissions</router-link></b-list-group-item>
+          <b-list-group-item><router-link to="/addComplaint"><i class="far fa-frown"></i> Add Complaint</router-link></b-list-group-item>
         </b-list-group>
     </b-navbar>
   </div>
@@ -30,7 +31,7 @@
         <b-list-group-item><router-link to="/studentunion"><i class="fas fa-users"></i> Student Union</router-link></b-list-group-item>
         <b-list-group-item><router-link to="/nominationrequest"><i class="fas fa-address-card"></i> Nomination Requests</router-link></b-list-group-item>
         <b-list-group-item><router-link to="/commissions"><i class="fas fa-address-book"></i> Commissions</router-link></b-list-group-item>
-        <b-list-group-item><router-link to="/electionresults"><i class="fas fa-chart-pie"></i> Election Results</router-link></b-list-group-item>
+        <b-list-group-item><router-link to="/elections"><i class="fas fa-chart-pie"></i> Elections</router-link></b-list-group-item>
         <b-list-group-item><router-link to="/complaints"><i class="far fa-frown"></i> Complaints</router-link></b-list-group-item>
         <b-list-group-item><router-link to="/posts"><i class="fas fa-edit"></i> Add Posts</router-link></b-list-group-item>
       </b-list-group>

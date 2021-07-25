@@ -24,11 +24,6 @@ const routes = [
         component: () => import('../components/OverView.vue')
       },
       {
-        path: '/electionresults',
-        name: 'ElectionResults',
-        component: () => import('../components/ElectionResults.vue')
-      },
-      {
         path: '/candidates',
         name: 'Candidate',
         component: () => import('../components/Candidates.vue')
@@ -67,6 +62,28 @@ const routes = [
         path: '/posts',
         name: 'Posts',
         component: () => import('../components/Posts.vue')
+      },
+      {
+        path: '/addComplaint',
+        name: 'AddComplaint',
+        component: () => import('../components/AddComplaint.vue')
+      },
+      {
+        path: '/elections',
+        name: 'Elections',
+        component: () => import('../components/Elections.vue'),
+        children: [
+          {
+            path: '/electionresults',
+            name: 'ElectionResults',
+            component: () => import('../components/ElectionResults.vue')
+          },
+          {
+            path: '/electionManager',
+            name: 'ElectionManager',
+            component: () => import('../components/ElectionManager.vue'),
+          }
+        ]
       }
     ]
   },
