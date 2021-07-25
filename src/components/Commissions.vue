@@ -1,16 +1,59 @@
 <template>
     <div class="container">
         <div v-if="roleId==1">
-            <b-button v-b-toggle.collapse-1 variant="success">Add Committee</b-button>
+            <b-button v-b-toggle.collapse-1 variant="success" style="margin-bottom: 10px;">Add Committee</b-button>
             <b-collapse id="collapse-1" class="mt-2">
-            <b-card>
-            <p class="card-text">Collapse contents Here</p>
-            <b-button v-b-toggle.collapse-1-inner size="sm">Toggle Inner Collapse</b-button>
-            <b-collapse id="collapse-1-inner" class="mt-2">
-                <b-card>Hello!</b-card>
+                <b-card>
+                    <!-- <b-form @submit="addCommittee" @reset="onReset">
+                        <b-form-group
+                            id="input-group-1"
+                            label="Committee Name:"
+                            label-for="input-1"
+                        >
+                            <b-form-input
+                            id="input-1"
+                            v-model="form.name"
+                            placeholder="Enter Committee Name"
+                            required
+                            ></b-form-input>
+                        </b-form-group>
+
+                        <b-form-group id="input-group-2" label="Description:" label-for="input-2">
+                            <b-form-input
+                            id="input-2"
+                            v-model="form.desc"
+                            placeholder="Enter Description"
+                            required
+                            ></b-form-input>
+                        </b-form-group>
+
+                        <b-form-group id="input-group-3">
+                            <input
+                            style="display: none;"
+                            type="file"
+                            @change="onFileSelected"
+                            ref="fileInput">
+                            <a
+                            type="button"
+                            @click="$refs.fileInput.click()"
+                            >
+                            <i 
+                            class="far fa-image"
+                            style="font-size: 50px;
+                                    color: #39f;
+                                    float: left;
+                                    margin-top: 10px;"
+                            >
+                            </i>
+                            </a>
+                            <img id="img" src="" height="200" alt="" style="display:block;">
+                        </b-form-group>
+
+                        <b-button type="submit" variant="primary">Submit</b-button>
+                        <b-button type="reset" variant="danger">Reset</b-button>
+                    </b-form> -->
+                </b-card>
             </b-collapse>
-            </b-card>
-        </b-collapse>
         </div>
         <b-card-group v-for="com in result" :key="com.id">
             <b-card img-src="https://placekitten.com/150/150" img-alt="Card image" img-left class="mb-3">
@@ -33,7 +76,12 @@ export default {
             pageNo: '1',
             itemsPerPage: '20',
             searchText: '',
-            result: []
+            result: [],
+            // form: {
+            //     name: '',
+            //     desc: '',
+            //     image: []
+            // }
         }
     },
     methods: {

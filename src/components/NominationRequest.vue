@@ -43,9 +43,6 @@ export default {
                 this.data = res.data.data;
             });
         },
-        addCommittee(){
-
-        },
         getInfo(){
             let userdata = JSON.parse(localStorage.getItem("user"));
             this.token = userdata.data.token;
