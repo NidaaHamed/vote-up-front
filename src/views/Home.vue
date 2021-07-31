@@ -8,7 +8,7 @@
         <b-col md="2" class="mt-4" style="min-width: 20%">
           <side-bar />
         </b-col>
-        <b-col md="9" class="mt-4 pt-5 bg-white">
+        <b-col md="9" class="mt-4">
           <div class="container">
             <router-view />
           </div>

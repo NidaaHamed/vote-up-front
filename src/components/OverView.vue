@@ -1,7 +1,7 @@
 <template>
-    <div class="container posts-content">
+    <div class="container">
         <div v-for="post in posts" :key="post.id" class="row">
-            <div style="width: 80%;margin:auto;">
+            <div>
                 <div class="card mb-4">
                 <div class="card-body">
                     <div class="media mb-3 d-flex">
@@ -13,7 +13,7 @@
                     </div>
                 
                     <p>{{ post.text }}</p>
-                    <img :src="post.images[0]" alt="" style="width:90%;"> 
+                    <img :src="post.images[0]" alt="" style="width:90%;max-height: 325px;"> 
                 </div>
                 <div class="card-footer d-flex" style="justify-content: space-around;">
                     <a class="d-inline-block text-muted" @click="like(post.id)">
@@ -83,9 +83,7 @@ export default {
 body {
     background:#eee;
 }
-.posts-content{
-    margin-top:20px;    
-}
+
 .ui-w-50 {
     width: 50px !important;
     height: 50px !important;

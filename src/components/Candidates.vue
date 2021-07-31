@@ -1,10 +1,9 @@
 <template>
     <div class="container">
-        <h1>Candidates</h1>
         <b-container class="bv-example-row mb-3">
             <b-row cols="3">
                 <b-card-group v-for="can in candidates" :key="can.id">
-                    <b-card class="bg-secondary">
+                    <b-card>
                         <div id="position-title">{{ can.commissionName }}</div>
                         <b-card :img-src="can.userImage" img-alt="Card image" img-top>
                             <b-card-text>
@@ -121,7 +120,6 @@ h1 {
     font-size: 24px;
 }
 .card {
-    /* width: 30% !important; */
     border: 1px solid #ddd !important;
     border-radius: 5px !important;
     margin: 5px;

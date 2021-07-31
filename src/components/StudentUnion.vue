@@ -1,6 +1,5 @@
 <template>
     <div>
-       <h1>Student Union</h1>
        <div>
            <b-list-group v-for="com in details" :key="com.commissionId" style="border: 1px solid #eee;border-radius:5px;">
                 <div id="position-title">{{ com.commissionName }}</div>
@@ -53,16 +52,13 @@ export default {
 }
 </script>
 <style scoped>
-h1 {
-    font-size: 24px;
-}
 .list-group {
     border: 1px solid #a7cff7 !important;
     border-radius: 5px;
-    width: 80%;
-    margin: 20px auto;
+    width: 100%;
+    margin: 0 auto 20px;
     padding: 5px;
-    background-color: #eee;
+    background-color: #fff;
 }
 #position-title {
     background-color: #a7cff7;
